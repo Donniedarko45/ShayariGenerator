@@ -78,7 +78,7 @@ export function Home() {
           <button
             onClick={generateShayari}
             disabled={!topic || isLoading}
-            className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 transition-transform transform hover:scale-105"
+            className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg disabled:cursor-not-allowed flex items-center gap-2 transition-transform transform hover:scale-105"
           >
             {isLoading ? (
               "Generating..."

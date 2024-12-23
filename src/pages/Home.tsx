@@ -10,7 +10,6 @@ const client = new Mistral({ apiKey: apiKey });
 
 export function Home() {
   const [topic, setTopic] = useState("");
-  const [genre, setGenre] = useState("Romantic");
   const [shayari, setShayari] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -22,7 +21,23 @@ export function Home() {
         messages: [
           {
             role: "user",
-            content: `Generate a ${genre} Shayari in Hindi that is emotional and heartfelt based on the following line: '${topic}'. The Shayari should be filled with deep feelings, with a perfect blend of love and longing. Keep it soulful and poetic, with 5-6 lines that capture the essence of the topic.`,
+            content: `
+-Generate a shayari inspired by this theme: '${topic}'.
+-Take a inspiration from , ghalib,Mir Taqi Mir,Mir anees,Muhammad Iqbal and other famous Poets.
+-Length of the shayari should be 8-12 lines and should make sense.
+-Write in English with hindi touch.
+-Use words like 'Dil','Dard','Ishq','Mohabbat','Khuda','Zindagi','Yaad','Raat','Din','Sapna','Aankhen','Khwab','Jaan','Jahan','Jahanpanah','Jahanara','Jahanara' etc.
+-Use metaphors and similies.
+-Use rhyming words.
+-Use hindi words in between.
+-Use idioms and proverbs.
+-Use emotions like love, pain, separation, hope, fear, joy etc.
+-Use imagery.
+-Use personification.
+-Make it emotional and heart touching.
+-Dont mix the poem make it relatable and make it a complete poem if it requires more lines than take it 
+-You are capable of writing good shayaris lets write it.
+`,
           },
         ],
       });
@@ -51,7 +66,7 @@ export function Home() {
       </section>
 
       <div className="max-w-2xl mx-auto mb-12">
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2">
           <input
             type="text"
             value={topic}
@@ -59,16 +74,6 @@ export function Home() {
             placeholder="Enter a topic or theme for your Shayari..."
             className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-transform transform hover:scale-105"
           />
-          <select
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-            className="px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-transform transform hover:scale-105"
-          >
-            <option value="Romantic">Romantic</option>
-            <option value="Sad">Sad</option>
-            <option value="Motivational">Motivational</option>
-            <option value="Friendship">Friendship</option>
-          </select>
           <button
             onClick={generateShayari}
             disabled={!topic || isLoading}

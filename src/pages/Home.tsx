@@ -23,14 +23,13 @@ export function Home() {
             role: "user",
             content: `
 -Generate a shayari inspired by this theme: '${topic}'.
--Take a inspiration from , ghalib,Mir Taqi Mir,Mir anees,Muhammad Iqbal and other famous Poets.
+-Take a inspiration from  ghalib Mir,Taqi Mir,Mir anees,Muhammad Iqbal and other famous Poets.
 -Length of the shayari should be 8-12 lines and should make sense.
 -Write in hinglish.
--Use words like 'Dil','Dard','Ishq','Mohabbat','Khuda','Zindagi','Yaad','Raat','Din','Sapna','Aankhen','Khwab','Jaan','Jahan','Jahanpanah','Jahanara','Jahanara' etc.
+-Use words like 'Dil','Dard','Ishq','Mohabbat','Khuda','Zindagi','Yaad','Raat','Din','Sapna','Aankhen','Khwab','Jaan','Jahan' etc.
 -Use metaphors and similies.
 -Dont use english words use english words while writing the hindi.
 -Use rhyming words.
--Use hindi words in between.
 -Use idioms and proverbs.
 -Use emotions like love, pain, separation, hope, fear, joy etc.
 -Use imagery.
@@ -38,8 +37,8 @@ export function Home() {
 -Make it emotional and heart touching.
 -Dont mix the poem make it relatable and make it a complete poem if it requires more lines than take it 
 -You are capable of writing good shayaris lets write it.
--take care that the shayari dont be too much long.
--maximum number of lines should be 14.
+-take care that the shayari should not be too much long.
+-number of lines should not excceds 14.
 `,
           },
         ],

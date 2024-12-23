@@ -1,11 +1,8 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Home } from './pages/Home';
-import { Categories } from './pages/Categories';
-import { MyShayaris } from './pages/MyShayaris';
-import { Contact } from './pages/Contact';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+import { Home } from "./pages/Home";
+import { Categories } from "./pages/Categories";
+import { MyShayaris } from "./pages/MyShayaris";
 function App() {
   return (
     <Router>
@@ -16,7 +13,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/my-shayaris" element={<MyShayaris />} />
-            <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
       </div>

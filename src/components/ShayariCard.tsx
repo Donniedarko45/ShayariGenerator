@@ -31,7 +31,7 @@ export function ShayariCard({ content, author }: ShayariCardProps) {
   };
 
   return (
-    <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 max-w-2xl w-full mx-auto">
+    <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 max-w-2xl w-full mx-auto transition-transform transform hover:scale-105">
       <div className="mb-4 font-serif text-xl text-gray-800 leading-relaxed text-center">
         {content}
       </div>

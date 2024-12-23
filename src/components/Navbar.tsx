@@ -1,15 +1,22 @@
-import { Home, Book, Heart, Mail, Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Home, Book, Heart, Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', path: '/', icon: <Home className="w-5 h-5" /> },
-    { name: 'Categories', path: '/categories', icon: <Book className="w-5 h-5" /> },
-    { name: 'My Shayaris', path: '/my-shayaris', icon: <Heart className="w-5 h-5" /> },
-    { name: 'Contact', path: '/contact', icon: <Mail className="w-5 h-5" /> },
+    { name: "Home", path: "/", icon: <Home className="w-5 h-5" /> },
+    {
+      name: "Categories",
+      path: "/categories",
+      icon: <Book className="w-5 h-5" />,
+    },
+    {
+      name: "My Shayaris",
+      path: "/my-shayaris",
+      icon: <Heart className="w-5 h-5" />,
+    },
   ];
 
   return (
@@ -42,7 +49,11 @@ export function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-purple-600 transition-colors"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -69,3 +80,4 @@ export function Navbar() {
     </nav>
   );
 }
+

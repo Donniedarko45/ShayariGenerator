@@ -25,9 +25,10 @@ export function Home() {
 -Generate a shayari inspired by this theme: '${topic}'.
 -Take a inspiration from , ghalib,Mir Taqi Mir,Mir anees,Muhammad Iqbal and other famous Poets.
 -Length of the shayari should be 8-12 lines and should make sense.
--Write in English with hindi touch.
+-Write in hinglish.
 -Use words like 'Dil','Dard','Ishq','Mohabbat','Khuda','Zindagi','Yaad','Raat','Din','Sapna','Aankhen','Khwab','Jaan','Jahan','Jahanpanah','Jahanara','Jahanara' etc.
 -Use metaphors and similies.
+-Dont use english words use english words while writing the hindi.
 -Use rhyming words.
 -Use hindi words in between.
 -Use idioms and proverbs.

@@ -38,11 +38,12 @@ export function Home() {
 -Make it emotional and heart touching.
 -Dont mix the poem make it relatable and make it a complete poem if it requires more lines than take it 
 -You are capable of writing good shayaris lets write it.
+-take care that the shayari dont be too much long.
+-maximum number of lines should be 14.
 `,
           },
         ],
       });
-      console.log("Response:", response);
 
       const generatedShayari = response.choices[0]?.message?.content;
       setShayari(generatedShayari as string);

@@ -26,7 +26,6 @@ export function Home() {
 -Take a inspiration from  ghalib Mir,Taqi Mir,Mir anees,Muhammad Iqbal and other famous Poets.
 -Length of the shayari should be 8-12 lines and should make sense.
 -Write in hinglish.
--Use words like 'Dil','Dard','Ishq','Mohabbat','Khuda','Zindagi','Yaad','Raat','Din','Sapna','Aankhen','Khwab','Jaan','Jahan' etc.
 -Use metaphors and similies.
 -Dont use english words use english words while writing the hindi.
 -Use rhyming words.

@@ -15,6 +15,7 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
+    include: ['@google/generative-ai'],
     exclude: ["lucide-react"],
   },
 });

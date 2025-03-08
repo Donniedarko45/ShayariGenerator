@@ -8,6 +8,9 @@ export default defineConfig({
       external: ['@google/generative-ai']
     }
   },
+  ssr: {
+    noExternal: ['@google/generative-ai'], // Ensure Vercel bundles it properly
+  },
   plugins: [react()],
   resolve: {
     alias: {

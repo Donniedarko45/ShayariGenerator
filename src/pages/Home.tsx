@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { Send } from "lucide-react";
-import { ShayariCard } from "../components/ShayariCard";
+import { useState } from "react";
 import { PoetSection } from "../components/PoetSection";
-import { Mistral } from "@mistralai/mistralai";
+import { ShayariCard } from "../components/ShayariCard";
 
-const apiKey = import.meta.env.VITE_MISTRAL_API_KEY;
-
-const client = new Mistral({ apiKey: apiKey });
+const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+const genAI = new GoogleGenerativeAI(apiKey);
 
 export function Home() {
   const [topic, setTopic] = useState("");
@@ -16,31 +15,21 @@ export function Home() {
   const generateShayari = async () => {
     setIsLoading(true);
     try {
-      const response = await client.chat.complete({
-        model: "mistral-large-latest",
-        messages: [
-          {
-            role: "user",
-            content: `
--Generate a shayari inspired by this theme: '${topic}'.
--Take a inspiration from  ghalib Mir,Taqi Mir,Mir anees,Muhammad Iqbal and other famous Poets.
--Length of the shayari should be 4-6 lines and should make sense.
--Write in hinglish.
--Use metaphors and similies.
--Dont use english words use english words while writing the hindi.
--Use rhyming words.
--Make it emotional and heart touching.
--Dont mix the poem make it relatable and make it a complete poem if it requires more lines than take it 
--You are capable of writing good shayaris lets write it.
--take care that the shayari should not be too much long.
--the output should be a shayri nothing else and generate only one shayri at a time.
-`,
-          },
-        ],
-      });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-      const generatedShayari = response.choices[0]?.message?.content;
-      setShayari(generatedShayari as string);
+      const prompt = `
+-Generate a shayari inspired by this theme: '${topic}'.
+-Take a inspiration from famous urdu and hindi poets.
+-use hinglish words while writing.
+-the output should be a shayri nothing else and generate only one shayri at a time.
+`;
+
+      const result = await model.generateContent(prompt);
+      console.log(result);
+      const response = result.response;
+      const generatedShayari = response.text();
+      console.log(generatedShayari);
+      setShayari(generatedShayari);
     } catch (error) {
       console.error("Error generating shayari:", error);
       setShayari("Sorry, we couldn't generate a Shayari at this moment.");

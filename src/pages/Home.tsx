@@ -7,6 +7,14 @@ import { ShayariCard } from "../components/ShayariCard";
 const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
 const genAI = new GoogleGenerativeAI(apiKey);
 
+const generationConfig = {
+  temperature: 0.7,
+  topP: 0.95,
+  topK: 64,
+  maxOutputTokens: 65536,
+  responseMimeType: "text/plain",
+};
+
 export function Home() {
   const [topic, setTopic] = useState("");
   const [shayari, setShayari] = useState("");
@@ -15,16 +23,20 @@ export function Home() {
   const generateShayari = async () => {
     setIsLoading(true);
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-thinking-exp-01-21" });
 
       const prompt = `
--Generate a shayari inspired by this theme: '${topic}'.
--Take a inspiration from famous urdu and hindi poets.
--use hinglish words while writing.
--the output should be a shayri nothing else and generate only one shayri at a time.
+- Generate a shayari inspired by this theme: '${topic}'.
+- Take inspiration from famous Urdu and Hindi poets.
+- Use Hinglish words while writing.
+- The output should be a shayari, nothing else, and generate only one shayari at a time.
 `;
 
-      const result = await model.generateContent(prompt);
+      const result = await model.generateContent({
+        contents: [{ role: "user", parts: [{ text: prompt }] }],
+        generationConfig
+      });
+
       console.log(result);
       const response = result.response;
       const generatedShayari = response.text();
@@ -37,6 +49,7 @@ export function Home() {
       setIsLoading(false);
     }
   };
+
 
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
